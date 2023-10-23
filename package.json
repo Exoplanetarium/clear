@@ -1,0 +1,36 @@
+{
+  "name": "clear",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-regular-svg-icons": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "babel-plugin-macros": "^3.1.0",
+    "chart.js": "^4.4.0",
+    "eslint": "8.36.0",
+    "eslint-config-next": "13.2.4",
+    "firebase": "^10.4.0",
+    "firebase-admin": "^11.11.0",
+    "font-awesome": "^4.7.0",
+    "next": "^13.5.2",
+    "openai": "^4.12.4",
+    "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
+    "react-countup": "^6.4.2",
+    "react-dom": "^18.2.0",
+    "react-google-charts": "^4.0.1",
+    "react-scroll": "^1.8.9",
+    "react-select": "^5.7.1",
+    "react-slider": "^2.0.4",
+    "react-type-animation": "^3.2.0",
+    "rsuite": "^5.32.0"
+  }
+}
