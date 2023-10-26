@@ -2,7 +2,7 @@ import styles from '/styles/Home.module.css'
 import React from 'react'
 import ReactSlider from 'react-slider'
 import { useState, useEffect, useContext } from 'react'
-import { FoodContext } from '../../contexts/CarbonContexts'
+import { FoodContext } from '../contexts/CarbonContexts'
 import { ButtonToolbar, IconButton, ButtonGroup, Button } from 'rsuite'
 import 'rsuite/dist/rsuite-no-reset.min.css'
 

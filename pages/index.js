@@ -3,9 +3,9 @@ import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
 import React, { useState, useEffect } from 'react';
 import clear_logo from '../public/images/clear_logo.png'
-import AuthComponent from './Components/AuthComponent'
-import HomePage from './Components/HomePage'
-import HamburgerMenu from './Components/HamburgerMenu'
+import AuthComponent from '../Components/AuthComponent'
+import HomePage from '../Components/HomePage'
+import HamburgerMenu from '../Components/HamburgerMenu'
 import CarbonContexts from '../contexts/CarbonContexts'
 import { auth } from '../services/firebaseClientSetup';
 

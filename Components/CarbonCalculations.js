@@ -2,15 +2,15 @@ import styles from '/styles/Home.module.css'
 import React from 'react'
 import ReactSlider from 'react-slider'
 import { useState, useEffect, useContext, useCallback } from 'react'
-import { CommuteContext } from '../../contexts/CarbonContexts'
-import { FoodContext } from '../../contexts/CarbonContexts'
-import { EnergyContext } from '../../contexts/CarbonContexts'
+import { CommuteContext } from '../contexts/CarbonContexts'
+import { FoodContext } from '../contexts/CarbonContexts'
+import { EnergyContext } from '../contexts/CarbonContexts'
 import { Chart } from 'react-google-charts'
 import dynamic from 'next/dynamic';
 import { Button, Divider, Modal } from 'rsuite'
 import { getAuth } from 'firebase/auth';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
-import app from '../../services/firebaseClientSetup'
+import app from '../services/firebaseClientSetup'
 import 'rsuite/dist/rsuite-no-reset.min.css'
 import ScrollArrow from './ScrollArrow'
 

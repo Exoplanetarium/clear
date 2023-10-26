@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { auth } from '../../services/firebaseClientSetup';
+import { auth } from '../services/firebaseClientSetup';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import 'rsuite/dist/rsuite-no-reset.min.css';
