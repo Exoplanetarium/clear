@@ -86,7 +86,7 @@ export default function CarbonAction() {
 
         prompt += "What are some suggestions to improve my carbon footprint? Be specific. Give 3 short suggestions for each category of commute, food, and electricity. \
                    After each category of suggestions (commute, food, electricity), make two new lines before starting the next one. Do not include the category name (ex: commute, food, electricity). \
-                   Each suggestion should be less than 12-13 words. One new line after every suggestion \
+                   Each suggestion should be less than 10 words. One new line after every suggestion \
                    (except the space between the categories). Sound like a human being. Don't include a preface. Don't include a closing paragraph. \
                    Make sure the suggestions are relevant to the user's data. \n";
 

@@ -12,6 +12,7 @@ import { getAuth } from 'firebase/auth';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
 import app from '../services/firebaseClientSetup'
 import 'rsuite/dist/rsuite-no-reset.min.css'
+import ScrollArrow from './ScrollArrow'
 
  const CountUp = dynamic(() => import('react-countup'), {
     ssr: false
@@ -255,6 +256,22 @@ export default function CarbonCalculations(props) {
         }, 
     }
 
+    const [scrollPosition, setScrollPosition] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrollPosition(window.scrollY);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+    const parallaxEffect = scrollPosition * -0.15;
+      
     return (
         <>
             <div className={styles.carbonCalculations}>
@@ -278,24 +295,27 @@ export default function CarbonCalculations(props) {
                             </div>
                             {percentageEmissions() < 0 ? 
                             <p style={{fontSize: '1rem', marginTop: '16px', textAlign: 'center'}}>Your commute emissions are <b>{-(percentageEmissions())}%</b> more than average.</p> :
-                            <p style={{fontSize: '1rem', marginTop: '16px', textAlign: 'center'}}>Your commute emissions are <b>{percentageEmissions()}%</b> less than average.</p>}
+                            <p style={{fontSize: '1rem', marginTop: '16px', textAlign: 'center'}}>Your commute emissions are <b>{percentageEmissions()}%</b> less than average.</p>} 
                         </div>
                     )}
                 </CountUp>
+                <ScrollArrow />
             </div>
             <div className={styles.chartContainer}>
-                <div className={styles.chartHeader}>
-                    <h1 style={{paddingBottom: '2rem'}}>Your Emissions</h1>
-                    <p>See a breakdown of <br /> your carbon footprint</p>
+                <div className={styles.chartContainer} style={{ transform: `translateY(${parallaxEffect}px)` }}>
+                    <div className={styles.chartHeader}>
+                        <h1 style={{paddingBottom: '2rem'}}>Your Emissions</h1>
+                        <p>See a breakdown of <br /> your carbon footprint</p>
+                    </div>
+                    <Chart
+                        className={styles.emissionsChart}
+                        chartType='PieChart'
+                        data={data}
+                        options={options}
+                        width='100%'
+                        height='100vh'
+                    />
                 </div>
-                <Chart
-                    className={styles.emissionsChart}
-                    chartType='PieChart'
-                    data={data}
-                    options={options}
-                    width='100%'
-                    height='100vh'
-                />
                 <div className={`${styles.greenCircle} ${styles.greenCircle1}`}></div>
                 <div className={`${styles.greenCircle} ${styles.greenCircle2}`}></div>
                 <div className={`${styles.greenCircle} ${styles.greenCircle3}`}></div>

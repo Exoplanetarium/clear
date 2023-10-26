@@ -1,15 +1,10 @@
 import styles from '@/styles/Home.module.css'
-import React from 'react'
-import Select from 'react-select'
-import { useState } from 'react'
+import React , { useState, useEffect }from 'react'
 import Image from 'next/image'
 import { Button, ButtonGroup, InputGroup, Input } from 'rsuite'
-import CommuteCard from './CommuteCard'
 import stepOne from '@/public/images/stepOne.png'
 import greenHouse from '@/public/images/greenHouse.png'
 import stepThree from '@/public/images/stepThree.png'
-import CarbonContexts from '../contexts/CarbonContexts'
-import CarbonAction from './CarbonAction'
 import CalculatorCard from './CalculatorCard'
 import { signOut } from 'firebase/auth'
 import { auth } from '../services/firebaseClientSetup'
@@ -49,6 +44,22 @@ export default function HomePage() {
         }
     };
 
+    const [scrollPosition, setScrollPosition] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrollPosition(window.scrollY);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+    const parallaxEffect = scrollPosition * -0.05;
+
     return (
         <>
             {showHome && <div className={styles.carbon}>
@@ -70,12 +81,12 @@ export default function HomePage() {
                         <h1>Measure your impact</h1>
                         <p style={{paddingTop: '1rem', color: '#666'}}>Understand the global impact of climate change and discover your personal role. <br /> Use our interactive tool to calculate your carbon footprint.</p>
                     </div>
-                    <div className={styles.stepBody}>
+                    <div className={styles.stepBody} style={{ transform: `translateY(${parallaxEffect}px)` }}>
                         <Image src={stepOne} alt="globe and calculator" />
                     </div>
                 </div>
                 <div className={styles.stepTwo}>
-                    <div className={styles.stepBody}>
+                    <div className={styles.stepBody} style={{ transform: `translateY(${parallaxEffect}px)` }} >
                         <Image src={greenHouse} alt="green house" />
                     </div>
                     <div className={styles.stepHeader}>
@@ -90,7 +101,7 @@ export default function HomePage() {
                         <h1>Track Your Progress</h1>
                         <p style={{paddingTop: '1rem', color: '#666'}}>Monitor your journey towards a greener lifestyle. <br /> Celebrate your achievements and stay motivated with our progress tracking feature.</p>
                     </div>
-                    <div className={styles.stepBody}>
+                    <div className={styles.stepBody} style={{ transform: `translateY(${parallaxEffect}px)` }} >
                         <Image src={stepThree} height={400} width={400} alt="target and calendar juxtaposed over rising arrow" />
                     </div>
                 </div>

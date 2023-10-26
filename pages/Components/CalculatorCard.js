@@ -51,10 +51,39 @@ export default function CalculatorCard({ setShowHome, setSelectedOption }) {
         }
     };
 
+    const funFacts = [
+        `Fun Fact: \n\nIf every American skipped meat for just one day a week, the carbon dioxide savings \nwould be the same as taking 30 million cars off the roads for a year.`,
+        `Fun Fact: \n\nIn the early 20th century, people used hydrogen balloons to measure the temperature of the atmosphere. \nToday, we have satellites for that!`,
+        `Fun Fact: \n\nRecycling one aluminum can save enough energy to listen to a full album on your smartphone. \nRecycling 100 cans could light your bedroom for two whole weeks!`,
+        `Fun Fact: \n\nThe amount of sunlight that hits the Earth's surface in just one hour could \ncover the world's energy consumption for an entire year.`,
+        `Fun Fact: \n\nThe highest temperature ever recorded on Earth was 134°F (56.7°C) in Death Valley National Park, California, in 1913. \nGlobal warming is expected to make heat records like this more common.`,
+        `Fun Fact: \n\nCovering less than 1% of the ocean floor, coral reefs are home to more than 25% of marine life, \nmaking them the most diverse ecosystems on the planet.`,
+        `Fun Fact: \n\nIn 70 years, the area suitable for coffee production is expected to decrease by 50%. \nProtecting the climate means protecting your brew!`,
+    ]
+
     const handleHome = () => {
         setShowHome(true);
         setSelectedOption(false);
     };
+
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]]; // swap elements
+        }
+    }
+
+    shuffleArray(funFacts);
+
+    const generateSequence = (facts) => {
+        const sequence = [];
+        facts.forEach(fact => {
+            sequence.push(fact, 2000); // Assuming you want a 2000ms pause after each fact
+        });
+        return sequence;
+    };
+    
+    const shuffledSequence = generateSequence(funFacts);
     
     return (
         <div className={styles.calculatorWrap}>
@@ -82,22 +111,7 @@ export default function CalculatorCard({ setShowHome, setSelectedOption }) {
                     className={styles.funFactText}
                     speed={60}
                     deletionSpeed={99}
-                    sequence={[
-                        `Fun Fact: \n\nIf every American skipped meat for just one day a week, the carbon dioxide savings \nwould be the same as taking 30 million cars off the roads for a year.`,
-                        2000,
-                        `Fun Fact: \n\nIn the early 20th century, people used hydrogen balloons to measure the temperature of the atmosphere. \nToday, we have satellites for that!`,
-                        2000,
-                        `Fun Fact: \n\nRecycling one aluminum can save enough energy to listen to a full album on your smartphone. \nRecycling 100 cans could light your bedroom for two whole weeks!`,
-                        2000,
-                        `Fun Fact: \n\nThe amount of sunlight that hits the Earth's surface in just one hour could \ncover the world's energy consumption for an entire year.`,
-                        2000,
-                        `Fun Fact: \n\nThe highest temperature ever recorded on Earth was 134°F (56.7°C) in Death Valley National Park, California, in 1913. \nGlobal warming is expected to make heat records like this more common.`,
-                        2000,
-                        `Fun Fact: \n\nCovering less than 1% of the ocean floor, coral reefs are home to more than 25% of marine life, \nmaking them the most diverse ecosystems on the planet.`,
-                        2000,
-                        `Fun Fact: \n\nIn 70 years, the area suitable for coffee production is expected to decrease by 50%. \nProtecting the climate means protecting your brew!`,
-                        2000,
-                    ]}
+                    sequence={shuffledSequence}
                 />}
             {currentSection !== 'result' &&
             <ButtonToolbar className={styles.calculatorTab}>

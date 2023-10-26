@@ -25,10 +25,31 @@
   min-height: 15vh;
 }
 
+.headerAuth {
+  display: flex;
+  flex-direction: row;
+  font-family: 'Montserrat', 'Lato', 'Open Sans';
+  padding: 1.5rem;
+  font-size: 4rem;
+  justify-content: center;
+  overflow: visible;
+  z-index: 100000;
+  height: 10vh;
+  
+}
+
+.headerAuth .headerImage {
+  position: relative;
+  justify-self: baseline;
+  margin-bottom: -30px;
+  margin-right: 20px;
+  z-index: 100000;
+}
+
 .header .headerImage {
   position: relative;
   justify-self: baseline;
-  margin-bottom: -24px;
+  margin-bottom: -30px;
   margin-right: 20px;
   z-index: 100000;
 }
@@ -482,9 +503,9 @@
 .yellowCircleContainer .yellowCircle {
   position: absolute;
   border-radius: 50%;
-  bottom: 0;
-  left: 0;
-  transform: translate(-50%, 50%);
+  top: 0;
+  left: -10%;
+  transform: translate(-50%, -50%);
   z-index: -3;
 }
 
@@ -615,6 +636,24 @@
   animation: haloEffect 1s cubic-bezier(0.4, 0, 1, 1);
 }
 
+.scrollArrow {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.scrollArrow:hover {
+  transform: translateX(-50%) translateY(-10px);
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none; /* This line ensures the hidden arrow doesn't interfere with clicks */
+}
+
 @keyframes haloEffect {
   0% {
     opacity: 1;
@@ -686,13 +725,14 @@
 
 .authCard {
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: 'Montserrat', 'Lato', 'Open Sans';
-  padding: 2rem;
+  padding: 0 2rem;
   width: 100%;
-  height: 100vh;
+  height: 90vh;
 }
 
 .authButton {
