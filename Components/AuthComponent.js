@@ -6,7 +6,7 @@ import 'rsuite/dist/rsuite-no-reset.min.css';
 import styles from '@/styles/Home.module.css';
 import { Input, Button, ButtonGroup } from 'rsuite';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
-import clear_logo from '../../public/images/clear_logo.png'
+import clear_logo from '../public/images/clear_logo.png'
 
 
 const AuthComponent = () => {
