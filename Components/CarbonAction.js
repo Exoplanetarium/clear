@@ -2,15 +2,8 @@ import styles from '/styles/Home.module.css'
 import React from 'react'
 import ReactSlider from 'react-slider'
 import { useState, useEffect, useContext } from 'react'
-import { Input, InputGroup, Button, ButtonGroup, Checkbox, CheckboxGroup } from 'rsuite'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGasPump, faBolt, faBus, faTrain, faBicycle, faWalking } from '@fortawesome/free-solid-svg-icons'
 import 'rsuite/dist/rsuite-no-reset.min.css'
-import clear_logo from '../../public/images/clear_logo.png'
-import CarbonCalculations from './CarbonCalculations'
 import { CommuteContext, FoodContext, EnergyContext } from '../contexts/CarbonContexts'
-import Image from 'next/image'
-import { TypeAnimation } from 'react-type-animation'
 const { Configuration, OpenAIApi } = require("openai");
 
 export default function CarbonAction() {
