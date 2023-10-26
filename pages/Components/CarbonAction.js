@@ -8,7 +8,7 @@ import { faGasPump, faBolt, faBus, faTrain, faBicycle, faWalking } from '@fortaw
 import 'rsuite/dist/rsuite-no-reset.min.css'
 import clear_logo from '../../public/images/clear_logo.png'
 import CarbonCalculations from './CarbonCalculations'
-import { CommuteContext, FoodContext, EnergyContext } from '../contexts/CarbonContexts'
+import { CommuteContext, FoodContext, EnergyContext } from '../../contexts/CarbonContexts'
 import Image from 'next/image'
 import { TypeAnimation } from 'react-type-animation'
 const { Configuration, OpenAIApi } = require("openai");

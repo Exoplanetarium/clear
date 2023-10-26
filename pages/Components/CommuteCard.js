@@ -2,7 +2,7 @@ import styles from '/styles/Home.module.css'
 import React from 'react'
 import ReactSlider from 'react-slider'
 import { useState, useEffect, useContext } from 'react'
-import { CommuteContext } from '../contexts/CarbonContexts'
+import { CommuteContext } from '../../contexts/CarbonContexts'
 import { ButtonToolbar, IconButton, ButtonGroup, Button } from 'rsuite'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGasPump, faBolt, faBus, faTrain, faBicycle, faWalking } from '@fortawesome/free-solid-svg-icons'
@@ -12,6 +12,8 @@ import 'rsuite/dist/rsuite-no-reset.min.css'
 export default function CommuteCard(props) {
     const { milesDaily, setMilesDaily, daysPerWeek, setDaysPerWeek, methodTravel, setMethodTravel } = useContext(CommuteContext);
     const [marksPositions, setMarksPositions] = useState([])
+
+    console.log(useContext(CommuteContext));
 
     const pageNumber = props.pageNumber
 

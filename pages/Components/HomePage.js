@@ -7,7 +7,7 @@ import greenHouse from '@/public/images/greenHouse.png'
 import stepThree from '@/public/images/stepThree.png'
 import CalculatorCard from './CalculatorCard'
 import { signOut } from 'firebase/auth'
-import { auth } from '../services/firebaseClientSetup'
+import { auth } from '../../services/firebaseClientSetup'
 import 'rsuite/dist/rsuite-no-reset.min.css'
 
 

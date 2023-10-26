@@ -6,8 +6,8 @@ import clear_logo from '../public/images/clear_logo.png'
 import AuthComponent from './Components/AuthComponent'
 import HomePage from './Components/HomePage'
 import HamburgerMenu from './Components/HamburgerMenu'
-import CarbonContexts from './contexts/CarbonContexts'
-import { auth } from './services/firebaseClientSetup';
+import CarbonContexts from '../contexts/CarbonContexts'
+import { auth } from '../services/firebaseClientSetup';
 
 export default function Home() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
