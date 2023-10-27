@@ -274,7 +274,7 @@ export default function CarbonCalculations(props) {
     return (
         <>
             <div className={styles.carbonCalculations}>
-                <CountUp key={Math.round(totalEmissions)} start={0} end={totalEmissions} duration={4.8} decimal='.' decimals={1}>
+                <CountUp key={Math.round(totalEmissions)} start={0} end={totalEmissions} delay={0} duration={4.8} decimal='.' decimals={1}>
                     {({ countUpRef }) => (
                         <div className={styles.calculationCard} style={{fontSize: '1.2em'}}>
                             <div className={styles.countUp}>
