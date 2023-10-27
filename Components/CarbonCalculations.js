@@ -15,7 +15,7 @@ import 'rsuite/dist/rsuite-no-reset.min.css'
 import ScrollArrow from './ScrollArrow'
 
 const CountUp = dynamic(() => import('react-countup'), {
-    ssr: false
+    ssr: true
 })
 
 const db = getFirestore(); // Initialize Firestore
