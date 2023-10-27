@@ -170,6 +170,7 @@ export default function CarbonCalculations(props) {
         let electricityEmissions = calculateElectricityEmissions(electricityBill, homeType, heatingCoEff);
 
         totalEmissions = commuteEmissions + foodEmissions + electricityEmissions;
+        console.log(totalEmissions)
         return totalEmissions;
     }
 
@@ -268,8 +269,6 @@ export default function CarbonCalculations(props) {
     }, []);
 
     const parallaxEffect = scrollPosition * -0.25;
-
-    console.log(calculateTotalEmissions())
       
     return (
         <>
