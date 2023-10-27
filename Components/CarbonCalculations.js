@@ -30,7 +30,6 @@ export default function CarbonCalculations(props) {
            //* electricity bill per month         // home type                         // heating coefficient
     const {electricityBill, setElectricityBill,   homeType, setHomeType,               heatingCoEff, setHeatingCoEff}                             = useContext(EnergyContext)
 
-    const [carbonEmission, setCarbonEmission] = useState(0);
     const [openModal, setOpenModal] = useState(false);
 
     // 6.5 metric tons / year --> 386.4 grams / mile for gasoline car
@@ -273,7 +272,7 @@ export default function CarbonCalculations(props) {
     return (
         <>
             <div className={styles.carbonCalculations}>
-                <CountUp key={totalEmissions} start={0} end={totalEmissions} duration={4.8} decimal='.' decimals={1}>
+                <CountUp start={0} end={totalEmissions} duration={4.8} decimal='.' decimals={1}>
                     {({ countUpRef }) => (
                         <div className={styles.calculationCard} style={{fontSize: '1.2em'}}>
                             <div className={styles.countUp}>
