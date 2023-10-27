@@ -15,7 +15,7 @@ import 'rsuite/dist/rsuite-no-reset.min.css'
 import ScrollArrow from './ScrollArrow'
 
 const CountUp = dynamic(() => import('react-countup'), {
-    ssr: true
+    ssr: false
 })
 
 const db = getFirestore(); // Initialize Firestore
@@ -183,6 +183,8 @@ export default function CarbonCalculations(props) {
     }
 
     const totalEmissions = useMemo(() => calculateTotalEmissions(), [milesDaily, daysPerWeek, methodTravel, percentLocal, redMeat, foodSaved, electricityBill, homeType, heatingCoEff])
+
+    console.log(totalEmissions)
 
     async function handleSave() {
         const auth = getAuth();
