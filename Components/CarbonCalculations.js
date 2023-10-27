@@ -1,5 +1,5 @@
 import styles from '/styles/Home.module.css'
-import React from 'react'
+import React, { useMemo } from 'react'
 import ReactSlider from 'react-slider'
 import { useState, useEffect, useContext, useCallback } from 'react'
 import { CommuteContext } from '../contexts/CarbonContexts'
@@ -14,7 +14,7 @@ import app from '../services/firebaseClientSetup'
 import 'rsuite/dist/rsuite-no-reset.min.css'
 import ScrollArrow from './ScrollArrow'
 
- const CountUp = dynamic(() => import('react-countup'), {
+const CountUp = dynamic(() => import('react-countup'), {
     ssr: false
 })
 
@@ -182,10 +182,7 @@ export default function CarbonCalculations(props) {
         return percentage;
     }
 
-    useEffect (() => {
-        const totalEmissions = calculateTotalEmissions()
-        setCarbonEmission(totalEmissions);
-    }, [milesDaily, daysPerWeek, methodTravel, percentLocal, redMeat, foodSaved, electricityBill, homeType, heatingCoEff])
+    const totalEmissions = useMemo(() => calculateTotalEmissions(), [milesDaily, daysPerWeek, methodTravel, percentLocal, redMeat, foodSaved, electricityBill, homeType, heatingCoEff])
 
     async function handleSave() {
         const auth = getAuth();
@@ -277,7 +274,7 @@ export default function CarbonCalculations(props) {
     return (
         <>
             <div className={styles.carbonCalculations}>
-                <CountUp key={calculateTotalEmissions()} start={0} end={calculateTotalEmissions()} duration={4.8} decimal='.' decimals={1}>
+                <CountUp key={totalEmissions} start={0} end={totalEmissions} duration={4.8} decimal='.' decimals={1}>
                     {({ countUpRef }) => (
                         <div className={styles.calculationCard} style={{fontSize: '1.2em'}}>
                             <div className={styles.countUp}>
