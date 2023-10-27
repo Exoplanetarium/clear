@@ -271,6 +271,8 @@ export default function CarbonCalculations(props) {
     }, []);
 
     const parallaxEffect = scrollPosition * -0.25;
+
+    console.log(calculateTotalEmissions())
       
     return (
         <>

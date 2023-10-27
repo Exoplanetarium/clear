@@ -13,8 +13,6 @@ export default function CommuteCard(props) {
     const { milesDaily, setMilesDaily, daysPerWeek, setDaysPerWeek, methodTravel, setMethodTravel } = useContext(CommuteContext);
     const [marksPositions, setMarksPositions] = useState([])
 
-    console.log(useContext(CommuteContext));
-
     const pageNumber = props.pageNumber
 
     const handleMilesDaily = (value) => {
