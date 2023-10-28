@@ -186,39 +186,40 @@ export default function CarbonCalculations(props) {
 
     console.log(totalEmissions)
 
-    async function handleSave() {
-        const auth = getAuth();
-        const user = auth.currentUser;
+    //! save/load functionality is currently disabled--Add back in later
+    // async function handleSave() {
+    //     const auth = getAuth();
+    //     const user = auth.currentUser;
 
-        if (user) {
-            const userRef = doc(db, 'users', user.uid); 
-            const emissionData = {
-                timestamp: new Date(),
-                value: carbonEmission
-            };
+    //     if (user) {
+    //         const userRef = doc(db, 'users', user.uid); 
+    //         const emissionData = {
+    //             timestamp: new Date(),
+    //             value: carbonEmission
+    //         };
 
-            try {
-                await setDoc(doc(userRef, 'emissions', emissionData.timestamp.toISOString()), emissionData);
-                console.log('Data saved successfully');
-                // Optionally, provide user feedback like a toast message or modal
-            } catch (error) {
-                console.error('Error saving emission data: ', error);
-                // Optionally, provide user feedback about the error
-            }
-        } else {
-            console.error('No user logged in');
-            // Optionally, alert the user that they need to be logged in
-        }
-    }
+    //         try {
+    //             await setDoc(doc(userRef, 'emissions', emissionData.timestamp.toISOString()), emissionData);
+    //             console.log('Data saved successfully');
+    //             // Optionally, provide user feedback like a toast message or modal
+    //         } catch (error) {
+    //             console.error('Error saving emission data: ', error);
+    //             // Optionally, provide user feedback about the error
+    //         }
+    //     } else {
+    //         console.error('No user logged in');
+    //         // Optionally, alert the user that they need to be logged in
+    //     }
+    // }
 
-    const handleSaveButton = () => {
-        handleSave();
-        setOpenModal(true);
-    }
+    // const handleSaveButton = () => {
+    //     handleSave();
+    //     setOpenModal(true);
+    // }
 
-    const handleModalClose = () => {
-        setOpenModal(false);
-    }
+    // const handleModalClose = () => {
+    //     setOpenModal(false);
+    // }
 
     // using react-google-charts
     const data = [
@@ -319,13 +320,15 @@ export default function CarbonCalculations(props) {
                 <div className={`${styles.greenCircle} ${styles.greenCircle2}`}></div>
                 <div className={`${styles.greenCircle} ${styles.greenCircle3}`}></div>
             </div>
+            {/*
+            //! save/load functionality is currently disabled--Add back in later
             <Button appearance='primary' className={styles.saveButton} onClick={handleSaveButton} style={{position: 'fixed'}}>Save My Calculation</Button>
-            {/* <Button appearance='primary' className={styles.loadButton} onClick={handleLoadButton} style={{position: 'fixed'}}>Load Saved Calculations</Button> */}
+                <Button appearance='primary' className={styles.loadButton} onClick={handleLoadButton} style={{position: 'fixed'}}>Load Saved Calculations</Button> 
             <Modal open={openModal} onClose={handleModalClose} enforceFocus={false} size='xs'  className={`modal ${styles.saveModal}`}>
                 <Modal.Body>
                     Calculation successfully saved!   
                 </Modal.Body>
-            </Modal>
+            </Modal> */}
         </>
     )
 }
