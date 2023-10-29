@@ -294,8 +294,8 @@ export default function CarbonCalculations(props) {
                                 </div>
                             </div>
                             {percentageEmissions() < 0 ? 
-                            <p style={{fontSize: '1rem', marginTop: '16px', textAlign: 'center'}}>Your commute emissions are <b>{-(percentageEmissions())}%</b> more than average.</p> :
-                            <p style={{fontSize: '1rem', marginTop: '16px', textAlign: 'center'}}>Your commute emissions are <b>{percentageEmissions()}%</b> less than average.</p>} 
+                            <p style={{fontSize: '1rem', marginTop: '16px', textAlign: 'center'}}>Your carbon emissions are <b>{-(percentageEmissions())}%</b> more than average.</p> :
+                            <p style={{fontSize: '1rem', marginTop: '16px', textAlign: 'center'}}>Your carbon emissions are <b>{percentageEmissions()}%</b> less than average.</p>} 
                         </div>
                     )}
                 </CountUp>
