@@ -1,4 +1,4 @@
-import { OpenAI, OpenAIApi } from "openai";
+import { OpenAI } from "openai";
 
 export default async function goalsHandler(req, res) {
     if (req.method !== 'POST') {
@@ -14,10 +14,12 @@ export default async function goalsHandler(req, res) {
     try {
         const result = await openai.chat.completions.create({
             model: "gpt-3.5-turbo",
-            messages: [{
+            messages: [
+                {
                 'role': 'user',
                 'content': prompt,
-            }],
+                }
+            ],
             temperature: 0.7,
             max_tokens: 3098,
         });

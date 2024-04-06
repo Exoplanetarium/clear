@@ -99,25 +99,35 @@ export default function CarbonAction() {
     const [isLoading, setIsLoading] = useState(false);
 
     const getGoalSuggestions = async () => {
-        const prompt = constructGoalsPrompt();
+        try {
+            const prompt = constructGoalsPrompt();
 
-        const response = await fetch('/api/openai-goals', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ prompt }),
-        });
-        const data = await response.json();
-        console.log("OpenAI Response:", data);  // Log the response
+            const response = await fetch('/api/openai-goals', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ prompt }),
+            });
 
-        // Check if data exists and has at least one item
-        if (data && data.message.length > 0) {
-            const rawSuggestions = data.message.split('\n').filter(line => line.trim() !== '').slice(0, 9);
-            return rawSuggestions.map(suggestion => removeBulletsAndNumbering(suggestion));
-        } else {
-            console.error("Unexpected OpenAI response format:", data);
-            return [];  // Return an empty array or some default value
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const data = await response.json();
+            console.log("OpenAI Response:", data);  // Log the response
+
+            // Check if data exists and has at least one item
+            if (data && data.message.length > 0) {
+                const rawSuggestions = data.message.split('\n').filter(line => line.trim() !== '').slice(0, 9);
+                return rawSuggestions.map(suggestion => removeBulletsAndNumbering(suggestion));
+            } else {
+                console.error("Unexpected OpenAI response format:", data);
+                return [];  // Return an empty array or some default value
+            } 
+        } catch (error) {
+            console.error("Error fetching goal suggestions:", error);
+            return [];
         }
     }
 
